@@ -1,7 +1,6 @@
 import Chat from "./Chat";
 import {connect} from "react-redux";
 import {AddMessage} from "../../Redux/chatPageReducer";
-import {withAuthComponent} from "../../HOC/withAuth";
 import {compose} from "redux";
 
 let mapStateToProps = (state) => {
@@ -13,4 +12,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default compose(connect(mapStateToProps, {AddMessage}),withAuthComponent)(Chat)
+export default compose(connect(mapStateToProps, {AddMessage}))(Chat)

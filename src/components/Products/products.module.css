@@ -1,0 +1,33 @@
+.productHolder{
+    display:inline-block;
+    outline:1px solid white;
+    margin:10px;
+    width:200px;
+}
+.productsStore{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.productsStore img {
+    width: 200px;
+    height:200px;
+}
+.productsStore input {
+    color:black;
+}
+button {
+    color:black;
+    width:100%;
+    height:45%
+}
+.sorter {
+    width: 200px;
+    height:200px;
+}
+.sorter button {
+    height: 25px;
+}

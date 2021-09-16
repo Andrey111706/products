@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "productId": 1,
+    "description": "some text",
+    "date": "22.01.2021"
+
+  },
+  {
+    "id": 2,
+    "productId": 1,
+    "description": "some text 2",
+    "date": "22.01.2021"
+
+  }
+
+]

@@ -1,0 +1,52 @@
+[
+  {"id":1,
+    "imageUrl":"https://timeout.od.ua/image/cache/catalog/Coca-Cola%20(0.5)-800x800.png",
+    "name":"Cola",
+    "count": 230,
+    "size": {
+      "width": 200,
+      "height": 200
+    },
+    "weight": "200g",
+    "comments": [1,2]
+  },
+  {"id":3,
+    "imageUrl":"https://vova.ua/wp-content/uploads/2019/08/010208-napitok-bezalkogolnyj-silnogazirovannyj-fanta-s-apelsinovym-sokom-330ml.jpg",
+    "name":"Fanta",
+    "count": 130,
+    "size": {
+      "width": 200,
+      "height": 200
+    },
+    "weight": "200g",
+    "comments": []
+  },
+  {
+  "id":4,
+  "imageUrl":"https://produktoff.ua/static/upload/goods/76/60576_square.jpg",
+  "name":"Святой источник",
+  "count": 130,
+  "size": {
+    "width": 200,
+    "height": 200
+  },
+  "weight": "200g",
+  "comments": []
+  },
+  {
+    "id":5,
+    "imageUrl":"https://produkty24.com.ua/db_pic/products/original/original_1459297944.26033210754395.jpg",
+    "name":"Поляна купель",
+    "count": 100,
+    "size": {
+      "width": 200,
+      "height": 200
+    },
+    "weight": "200g",
+    "comments": []
+  }
+
+
+
+]
+

@@ -4,13 +4,6 @@ body {
     color: white;
     background-attachment: fixed;
     font-size: 3vh;
-
-
-
-}
-
-.App > * {
-    outline: 1px solid red;
 }
 
 * {
@@ -26,9 +19,8 @@ input{
 .App{
     width: 100%;
     display: grid;
-    grid-template-areas: 'head head head'
-                       'navi content content'
-                       'footer footer footer';
+    grid-template-areas:
+                       'navi content content';
     grid-template-columns:  auto 2fr;
     grid-template-rows: auto 1fr;
     grid-gap: 2vh;
@@ -36,22 +28,13 @@ input{
 
 }
 
-.head {
-    grid-area: head;
-}
+
 
 .navigation {
     grid-area: navi;
 
 }
 
-.app-content {
-    grid-area: content;
-    min-width: 720px;
 
-}
 
-.footer {
-    grid-area: footer;
 
-}
