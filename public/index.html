@@ -16,5 +16,24 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+  <script>
+    let arr= [1,2,3,4,1,2,5,7,2];
+    let newArray=[]
+    for(let i =0;i<arr.length;i++){
+      let a=0;
+      for(let j=0;j<arr.length;j++){
+        if(arr[i]===arr[j]){
+          a++
+        }
+      }
+      if(a===1){
+        newArray.push(arr[i])
+      }
+    }
+    console.log(newArray)
+
+
+
+  </script>
   </body>
 </html>
