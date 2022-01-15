@@ -1,28 +1,27 @@
-import React, {useEffect} from "react";
-import Products from "./Products";
-import {connect} from "react-redux";
-import {GetProducts, PostRequest, sortProducts} from "../../Redux/ProductsReducer";
+import React, {useEffect} from "react"
+import {connect} from "react-redux"
+import { addNewItem, deleteItemFromList, GetProducts } from "../../redux/ProductsReducer"
+import Products from "./Products"
 
-const ProductsContainer = function (props) {
+const ProductsContainer = function ({ products, addNewItem, deleteItemFromList,GetProducts }) {
     useEffect(() => {
-        props.GetProducts();
-    },[]);
+        if (products.length === 0) GetProducts()
+    }, [products,GetProducts])
+    if (products.length === 0) return <div>Wait</div>
 
     return (
-        <div>
-
-            <Products products={props.products} sortProducts={props.sortProducts} />
-        </div>
+        <Products
+            currentList={products}
+            addNewItem={addNewItem}
+            products={products}
+            deleteItemFromList={deleteItemFromList}
+        />
     )
 }
+
 const mapStateToProps = (state) => {
     return {
         products: state.products.products
     }
 }
-
-export default connect(mapStateToProps,
-{
-    GetProducts,sortProducts,PostRequest
-}
-)(ProductsContainer);
+export default connect(mapStateToProps, {GetProducts, addNewItem, deleteItemFromList})(ProductsContainer);

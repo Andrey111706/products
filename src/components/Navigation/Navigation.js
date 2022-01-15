@@ -5,7 +5,8 @@ import {NavLink} from "react-router-dom";
 const Navigation = function () {
     return (
         <nav className={`${s.navigation}  navigation navbar-nav`}>
-            <NavLink to='/products' activeClassName={s.active}>Products</NavLink>
+            <div><NavLink to='/products' activeClassName={s.active}>Products list view</NavLink></div>
+            <div><NavLink to='/view' activeClassName={s.active}>Product view</NavLink></div>
         </nav>
     )
 }

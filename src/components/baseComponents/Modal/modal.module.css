@@ -1,0 +1,28 @@
+.modal * {
+    color:black;
+}
+.modal {
+    width: 100vw;
+    height: 100vh ;
+    background-color: rgba(51, 73, 75, 0.84);
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+.modal.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.content {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+
+}

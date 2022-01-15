@@ -1,88 +1,72 @@
-import s from './products.module.css'
-import {useState} from "react";
-import {PostRequest} from "../../Redux/ProductsReducer";
+import style from './products.module.css'
+import React, {useEffect, useState} from "react"
+import Modal from "../baseComponents/Modal/modal"
 
-const Products = function (props) {
-    let sortetproducts = []
-    let [SortTypeAmount, SetSortAmount] = useState(true)
-    let [SortTypeName, SetSortName] = useState(true)
-    let sortAmount = () => {
-        if (SortTypeAmount) {
-            SetSortAmount(false);
-            sortetproducts = (props.products.sort(function (a, b) {
-                return a.count - b.count
-            })).concat()
-            props.sortProducts(sortetproducts)
+const Products = function ({ products, deleteItemFromList, addNewItem }) {
+    const [currentList, setList] = useState([])
+    const [modal, setModal] = useState(false)
+    useEffect(() => {
+        setList((products))
+    }, [products])
 
-        } else {
-            SetSortAmount(true)
-            sortetproducts = (props.products.sort(function (a, b) {
-                return b.count - a.count
-            })).concat()
-            props.sortProducts(sortetproducts)
+    const sorter = (byWhat) => {
+        const sortedList = [...currentList]
+        switch (byWhat) {
+            case 'weight':
+                sortedList.sort((a, b) => parseInt(b.weight) - parseInt(a.weight))
+                break
+            case 'count':
+                sortedList.sort((a, b) => b.count - a.count)
+                break
+            case 'name':
+                sortedList.sort((a, b) => {
+                    if (a.name > b.name) return 1
+                    if (a.name < b.name) return -1
+                    return 0
+                })
+                break;
+            default:
+                break;
         }
-    };
-    let sortName = () => {
-        if (SortTypeName) {
-            SetSortName(false);
-            sortetproducts = (props.products.sort(function (a, b) {
-                if (a.name > b.name ) {
-                    return 1
-                } else return -1
-            })).concat()
-            props.sortProducts(sortetproducts)
-
-        } else {
-            SetSortName(true)
-            sortetproducts = (props.products.sort(function (a, b) {
-                if (a.name  < b.name ) {
-                    return 1
-                } else return -1
-            })).concat()
-            props.sortProducts(sortetproducts)
-        }
-    };
-    let productCreator = () => {
-        PostRequest({
-            "id": 7,
-            "imageUrl": "https://www.motherjones.com/wp-content/uploads/2019/12/Getty121719.jpg?w=990",
-            "name": "Elefant",
-            "count": 1,
-            "size": {
-                "width": 200,
-                "height": 200
-            },
-            "weight": "5t",
-            "comments": ['wooow']
-        })
+        setList(sortedList)
     }
 
+    function handleDelete(productId) {
+        const result = window.confirm("Do You realy want to delete product?")
+        if (result) deleteItemFromList(productId)
+    }
 
     return (
-        <div className={`container-fluid ${s.productsStore}`}>
-            <div className={s.sorter}>
-                Сортування по кількості
-                <button onClick={sortAmount}>Сортувати</button>
-                Сортування по імені
-                <button onClick={sortName}>Сортувати</button>
-                <button onClick={productCreator}>Send to serv</button>
+        <div>
+            <Modal active={modal} setActive={setModal} addNewItem={addNewItem}
+                   itemsInArray={products.length}/>
+            <div className={style.sorter}>
+                Sort By
+                <select
+                    defaultValue="default"
+                    className={style.selector}
+                    onChange={event => sorter(event.target.value)}
+                >
+                    <option value="default" disabled>Sort By</option>
+                    <option value="weight">Weight</option>
+                    <option value="name">Name</option>
+                    <option value="count">Count</option>
+                </select>
             </div>
-            {props.products.map(product => {
-                if(!product) return undefined;
-                return (
-                    <div key={product.id} className={s.productHolder}>
-                        <img className={s.productImageHolder} alt='image' src={product.imageUrl}/>
-                        <div> Назва: {product.name}</div>
-                        <div> Наявна кількість: {product.count}</div>
-                        <div> Вага: {product.weight}</div>
-                        <button>Замовити</button>
-                    </div>
-
-
-                )
-            })}
+            <button className={style.createNewButton} onClick={() => setModal(true)}>Create new</button>
+            <div className={style.productsStore}>
+                {currentList.map(product => (
+                        <div key={product.id} className={style.productHolder}>
+                            <div className={style.deleteButton} onClick={() => handleDelete(product.id)}>X</div>
+                            <img alt="" src={product.imageUrl}/>
+                            <div> Name: {product.name}</div>
+                            <div> Count: {product.count}</div>
+                            <div> Weight: {product.weight}</div>
+                        </div>
+                ))}
+            </div>
         </div>
     )
-};
+}
 
 export default Products;

@@ -2,16 +2,49 @@
   {
     "id": 1,
     "productId": 1,
-    "description": "some text",
+    "description": "Awesome",
     "date": "22.01.2021"
-
   },
   {
     "id": 2,
     "productId": 1,
-    "description": "some text 2",
+    "description": "Pretty Good!",
     "date": "22.01.2021"
-
+  },
+  {
+    "id": 3,
+    "productId": 2,
+    "description": "Good",
+    "date": "22.01.2021"
+  },
+  {
+    "id": 4,
+    "productId": 2,
+    "description": "Interesting!",
+    "date": "22.01.2021"
+  },
+  {
+    "id": 5,
+    "productId": 3,
+    "description": "Okay",
+    "date": "22.01.2021"
+  },
+  {
+    "id": 6,
+    "productId": 3,
+    "description": "Not bad!",
+    "date": "22.01.2021"
+  },
+  {
+  "id": 7,
+  "productId": 4,
+  "description": "Awesome",
+  "date": "22.01.2021"
+},
+  {
+    "id": 8,
+    "productId": 4,
+    "description": "Pretty Good!",
+    "date": "22.01.2021"
   }
-
 ]

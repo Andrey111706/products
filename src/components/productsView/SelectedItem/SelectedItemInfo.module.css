@@ -1,0 +1,34 @@
+.imageHolder {
+    display:inline-block ;
+    width:400px;
+    height:400px
+}
+.imageHolder img {
+    width:100%;
+    height: 100%;
+}
+
+.ItemInfo {
+    padding: 30px 0 0 20px;
+    vertical-align: top;
+    position: relative;
+    display: inline-block;
+}
+
+.messageFormHandler{
+    position: relative;
+    width:400px;
+}
+.messageFormHandler form textarea {
+    width:400px;
+    height:100px;
+    resize: none;
+    color:black;
+}
+.messageFormHandler form button {
+    border-radius: 5px;
+    margin:10px 20px;
+    display:inline-block;
+    height:20px;
+    width:150px;
+}

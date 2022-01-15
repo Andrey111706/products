@@ -1,16 +1,24 @@
 .productHolder{
+    position: relative;
     display:inline-block;
     outline:1px solid white;
     margin:10px;
     width:200px;
+    text-decoration:none;
+    border-radius: 10px;
+    overflow: hidden;
 }
+.productHolder a{
+    text-align: center;
+    text-decoration:none;
+}
+
 .productsStore{
-    margin-top: 100px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: stretch;
 }
 .productsStore img {
     width: 200px;
@@ -19,15 +27,35 @@
 .productsStore input {
     color:black;
 }
+
+.sorter {
+    display: inline-block;
+}
+.selector, .selector *{
+    color:black;
+    margin-left:10px;
+    margin-top:20px;
+}
+
 button {
     color:black;
     width:100%;
     height:45%
 }
-.sorter {
-    width: 200px;
-    height:200px;
+.deleteButton {
+    line-height: 20px;
+    position: absolute;
+    z-index: 1;
+    background-color: red;
+    width:20px;
+    height: 20px;
+    right: 2px;
+    top:2px;
+    border-radius: 50%;
+    cursor: default;
 }
-.sorter button {
-    height: 25px;
+.createNewButton{
+    margin-left:20px;
+    width:auto;
+    display: inline-block;
 }
